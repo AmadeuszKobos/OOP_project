@@ -54,17 +54,13 @@ class Item:
         return f"{self.__class__.__name__}('{self.__name}', '{self.__price}', '{self.__quantity}')"
 
     @classmethod
-    def initiate_from_csv(cls):
-        with open('items.csv', 'r') as f:
-            reader = csv.DictReader(f)
-            items = list(reader)
+    def initiate_from_csv(cls, item):
+        cls(
+            name=item.get('name'),
+            price=float(item.get('price')),
+            quantity=int(item.get('quantity'))
+        )
 
-        for item in items:
-            Item(
-                name=item.get('name'),
-                price=float(item.get('price')),
-                quantity=int(item.get('quantity'))
-            )
 
     @staticmethod
     def is_integer(num):

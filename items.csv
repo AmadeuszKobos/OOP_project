@@ -1,6 +1,4 @@
-name,price,quantity
-"Laptop",1000,10
-"Phone",500,5
-"Speaker",200,2
-"Headphones",200,3
-"TV",5000,50
+object_type,name,price,quantity,broken_phones
+"Phone","aPhone",1000,10,3
+"Item","SomeLaptop",2200,5
+"Phone","Zumzang",500,30,3

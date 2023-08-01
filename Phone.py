@@ -16,3 +16,12 @@ class Phone(Item):
     @broken_phones.setter
     def broken_phones(self, value):
         self.__broken_phones = value
+
+    @classmethod
+    def initiate_from_csv(cls, item):
+        cls(
+            name=item.get('name'),
+            price=float(item.get('price')),
+            quantity=int(item.get('quantity')),
+            broken_phones=int(item.get('broken_phones'))
+        )
