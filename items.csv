@@ -1,4 +1,6 @@
-object_type,name,price,quantity,broken_phones
+object_type,name,price,quantity,broken_phones,battery_capacity
 "Phone","aPhone",1000,10,3
-"Item","SomeLaptop",2200,5
+"Laptop","SomeLaptop",2200,5,,2500
+"Laptop","SomeLaptop",2200,5,,2500
 "Phone","Zumzang",500,30,3
+"BadClassName","",5,5

@@ -1,11 +1,11 @@
-import csv
+from abc import ABC, abstractmethod
 
 
 def color(text, color_code):
     return f"\033[{color_code}m{text}\033[0m"
 
 
-class Item:
+class Item(ABC):
     company_name = "Chihuahua"
     all_items = []
 
@@ -53,14 +53,9 @@ class Item:
     def __repr__(self):
         return f"{self.__class__.__name__}('{self.__name}', '{self.__price}', '{self.__quantity}')"
 
-    @classmethod
+    @abstractmethod
     def initiate_from_csv(cls, item):
-        cls(
-            name=item.get('name'),
-            price=float(item.get('price')),
-            quantity=int(item.get('quantity'))
-        )
-
+        pass
 
     @staticmethod
     def is_integer(num):
