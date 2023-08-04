@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-
+import customtkinter as ctk
 
 def color(text, color_code):
     return f"\033[{color_code}m{text}\033[0m"
@@ -49,6 +49,17 @@ class Item(ABC):
 
     def calculate_total_price(self):
         print(f"The prize of all {self.__name}s is equal to {self.__price * self.__quantity}")
+
+    def print_object(self, table):
+        object_type = ctk.CTkLabel(master=table.tab("Type"), text=self.__class__.__name__)
+        object_type.pack()
+        object_name = ctk.CTkLabel(master=table.tab("Name"), text=self.__name)
+        object_name.pack()
+        object_price = ctk.CTkLabel(master=table.tab("Price"), text=str(self.__price))
+        object_price.pack()
+        object_quantity = ctk.CTkLabel(master=table.tab("Quantity"), text=str(self.__quantity))
+        object_quantity.pack()
+        # object_row.configure(text=f"{self.__class__.__name__} | '{self.__name}' | '{self.__price}' | '{self.__quantity}'")
 
     def __repr__(self):
         return f"{self.__class__.__name__}('{self.__name}', '{self.__price}', '{self.__quantity}')"
