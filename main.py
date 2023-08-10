@@ -2,6 +2,7 @@ import csv
 from Item import Item
 from Phone import Phone
 from Laptop import Laptop
+from tkinter import ttk
 import customtkinter as ctk
 
 
@@ -36,7 +37,7 @@ def from_csv():
 
 def print_all_objects():
     for item in Item.all_items:
-        Phone.print_object(item, table=obj_table)
+        Item.print_object(item, table=obj_table)
 
 
 if __name__ == "__main__":
@@ -45,20 +46,27 @@ if __name__ == "__main__":
     app.geometry('800x600')
     app.title('Create objects from file')
 
-    # obj_list = ctk.CTkFrame(master=app)
+    try:
+        obj_table = ttk.Treeview(master=app, columns=("Type", "Name", "Price", "Quantity"), show="headings")
+        obj_table.heading("Type", text="Type")
+        obj_table.heading("Name", text="Name")
+        obj_table.heading("Price", text="Price")
+        obj_table.heading("Quantity", text="Quantity")
 
-    obj_table = ctk.CTkTabview(master=app)
-    obj_table.pack()
-    obj_table.add("Type")
-    obj_table.add("Name")
-    obj_table.add("Price")
-    obj_table.add("Quantity")
+        table_style = ttk.Style()
+        table_style.configure("Custom.Treeview", background="#333", foreground="white")
 
-    print_all_objects()
+        obj_table.configure(style="Custom.Treeview")  # setting style to "Table Style" defined below
+        obj_table.pack(pady=20)
+
+        print_all_objects()
+
+    except Exception as e:
+        print(e)
 
     app.mainloop()
 
-# print(Item.all_items)
+
 
 
 
