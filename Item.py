@@ -1,5 +1,4 @@
 from abc import ABC, abstractmethod
-import customtkinter as ctk
 
 
 def color(text, color_code):

@@ -19,3 +19,4 @@ object_type,name,price,quantity,broken_phones,battery_capacity
 "Laptop","AdvancedBook",2700,5,,3400
 "Laptop","SlimLaptop",1900,11,,2900
 "Phone","TechieCell",800,17,1,
+"Phone","TechieCell",800,17,1,
